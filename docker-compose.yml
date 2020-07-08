@@ -1,0 +1,27 @@
+version: "3"
+services:
+  tipask:
+    image: tipask:latest
+    links:
+      - mysql
+    environment:
+      - DB_HOST=mysql
+      - DB_DATABASE=tipask
+      - DB_USER=tipask
+      - DB_PASSWORD=tipask
+    ports:
+      - "8880:80"
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - /data/tipask/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=tipask
+      - MYSQL_USER=tipask
+      - MYSQL_PASSWORD=tipask
+      - MYSQL_ROOT_PASSWORD=tipask
+
+networks:
+  default:
+    driver: bridge
