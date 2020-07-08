@@ -27,8 +27,11 @@ ADD apache.conf /etc/apache2/sites-enabled/000-default.conf
 ADD php.ini /usr/local/etc/php/
 
 COPY src /var/www/html/tipask
+ADD docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 WORKDIR /var/www/html/tipask
 
 RUN composer install; 
 RUN touch .env && chmod 777 -R .env storage bootstrap/cache
+
+CMD [ "docker-entrypoint.sh" ] 
