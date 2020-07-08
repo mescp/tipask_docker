@@ -26,7 +26,7 @@ RUN cat /tmp/getcomposer.php | php -- --install-dir=/usr/local/bin --filename=co
 ADD apache.conf /etc/apache2/sites-enabled/000-default.conf
 ADD php.ini /usr/local/etc/php/
 
-COPY src /var/www/html/tipask
+COPY tipask /var/www/html/tipask
 ADD docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 WORKDIR /var/www/html/tipask
