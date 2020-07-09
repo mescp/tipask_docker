@@ -12,9 +12,7 @@ services:
     ports:
       - "8880:80"
     volumes:
-      - ./volumes/storage:/var/www/html/tipask/storage
-      - ./volumes/bootstrap:/var/www/html/tipask/bootstrap
-      - ./volumes/.env:/var/www/html/tipask/.env
+      - ./volumes/tipask:/var/www/html/tipask
 
   mysql:
     image: mysql:5.7
